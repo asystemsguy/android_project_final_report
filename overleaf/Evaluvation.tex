@@ -1,0 +1,15 @@
+\section{Evaluation}\label{evaluation}
+% originally on section model
+In this project, we will evaluate the new REST over NDN performance and compare it with existing REST over HTTP. We will show improvements in end-to-end latency and round-trip times of API calls as success criteria for our new stack.  
+
+\subsection{Testbed}
+We will create a 3 node test bed. Each node is a VM with 2 VCPU s and 8 GB ram. We will deploy Cinema 3 ~\cite{Cinema}, a microservice which uses python as the testing application.
+
+\subsection{Experiment A - REST-HTTP stack}
+In our first experiment, we will deploy cinema 3 ~\cite{Cinema} without any changes and we will measure end-to-end latency and round trip times for 5 of its APIs by load testing them.
+
+\subsection{Experiment B - REST-NDN stack}
+In this experiment, we will deploy cinema 3 ~\cite{Cinema} with new REST-NDN stack and NDN infrastructure. We will again measure end-to-end latency and round trip times for 5 of its APIs by load testing them.
+
+\subsection{Analysis}
+We will present an analysis of performance comparison between REST-HTTP stack and REST-NDN stack.

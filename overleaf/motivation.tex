@@ -1,0 +1,10 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem Statement}
+\label{motivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% example of a reference to other Section~\ref{sec:usecases}
+
+REST protocol requires certain essential services from its transport layer in order to function efficiently. Some of the important services include name resolution of the endpoints ~\cite{walfish2004untangling} and caching of long-lived objects. Currently, such services are given by external systems and middle-boxes which are adding more complexity to network and additional network overhead to maintain. Though HTTP provides a feature for caching, it doesn't provide in-network caching. In order to use caching feature of HTTP, we need the request to go through an HTTP cache which is a middle-box that can introduce a delay upon a cache miss ~\cite{fielding2002principled}. Every request to a new HTTP endpoint has to go through a DNS or a service discovery agent, this, in turn, adds more latency to the new API calls~\cite{walfish2004untangling}. 
+
+There is no way in the existing network to uniquely address an REST object and maintain a cached copy of it in the network without using additional complex middleware. In order to address this problem, we will use NDN as a transport protocol for REST objects. We will implement a python client that can convert REST commands into NDN packets and a content store for in-network storage of RESTful objects in the forwarder. We will deploy a sample microservices application in this new network to measure latency improvements that the new transport layer brings to the application using REST.

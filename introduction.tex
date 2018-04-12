@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Microservices architecture(MSA) ~\cite{dragoni2016microservices} is a most used application architecture in modern cloud-native applications. MSA has replaced traditional monolithic applications, firstly because of its reduced complexity allows each service to be implemented independently in decentralized service model into manageable services. Secondly, independent implementation of services allows the designers to use new technologies in there new services without breaking other existing services. 
+
+A typical microservices application is a collection of interacting services, each can be launched in their own container. These containers are ephemeral in nature and are created, migrated or destroyed by a container orchestration system like kubernetics. When a container is created or migrated, its IP address will change. This will make it impossible for other services to communicate just using IP addresses. Currently, this discoverability problem in microservices is addressed by different service discovery mechanisms like distributed key-value store[cite] or DNS. 
+
+Service Discovery is an essential aspect of microservices architecture as it avoids early binding of clients to particular service instances. Removing such coupling provides greater flexibility for reconfiguration of the overall system. Other than just providing connectivity between services, service discovery will help in load balancing the flows between different services with decreasing end to end latency as its optimization goal.
+
+In this project, we take a data-centric approach to service discovery. Named data networking(NDN) ~\cite{ndn} is a new approach to interconnect systems together in which required data is directly requested from the network rather than connecting to a specific host. This model of network particularly helpful in interconnecting microservices as each microservice wants data from a service end-point. Using NDN for connecting microservices will not only provide service discovery but also improves security, reliability and scalability of the application as described in section ~\ref{solution} .
+ 
+In section ~\ref{related}, we will introduce to existing solutions and NDN archtecture. In section ~\ref{motivation}, we will give motivation for the problem. Section ~\ref{solution} will contain description of project solution. finally section ~\ref{evaluation} will talk about how we will evaluvate our proposed system.

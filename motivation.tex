@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}
+\label{motivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% originally on section model
+%\begin{figure*}
+  %  \centering
+  %  \includegraphics[width=.8\textwidth]{figs/metamodel}
+  %  \caption{Service evolution model.}
+  %  \label{fig:metamodel}
+%\end{figure*}
+
+
+% example of citation ~\cite{Newman:2015}
+%,Nadareishvili:2016} 
+
+% example of a reference to other Section~\ref{sec:usecases}
+The solutions related to distributed reliable key-value store\cite{etcd,Consul,Synapse,zookeeper} mentioned above essentially are based on the similar priciples and architecture which relys on a consistent key-value store as service registry that is part of the cluster implementation. However, the complexity of this approach is heavily dependent on the number of cluster nodes. Consider the situation when there are insufficient number of cluster nodes, the Raft-based\cite{raft} quorum can not be properly formed, hence the data consistency may not be achieved across the nodes. Also, the recovery might take very long time due to various failures and having to restart from a clean slate and recover from backup. On the other hand, when the number of cluster nodes is large, this approach results in heavy overhead for the synchronization of the distributed states among every cluster nodes, since these quorum will have to require high participation of the members through either the mulicating or broadcasting of their status.
+
+The approaches based on DNS\cite{swarm,compose,mesos} although can be realily deployable through standard DNS infastructures and they do not suffer from the problems that the distributed consistent key-value stores have, they do have their own limitations using for service discovery since DNS was originally designed for a different purpose. Firstly, the DNS-based approaches do not support the pushing the changes of the services, so the service requester either has to periodically poll for the changes or implement extra level for caching. Secondly, DNS protocol runs over UDP, which makes the communications short of flow control. Even though such techniques could be implemented within the services with extra complexity, the advantage of using DNS can be diluted. Thirdly, DNS suffers from propagation delay and generation or updating of DNS records are also relatively slow, which can be problematic since service discovery always needs to be fast-paced. 
+
+Compared to DNS-based solutions and distributed key-value storage, ICN-based\cite{Ahlgren} solution emerged to be a better candidate for facilitating the efficient and timely delivery of service inforamtion to end users. In particular the hierarchical design of name space in NDN\cite{ndn,zhang2014named} that allows name resolution and data routing information to be gathered across similar data source names, which is the keystone to improve the resilience and flexibility of the network architecture even when operating at large scale. Also this ICN-based solution not only allows facilitating changes and scalability of microservices but also avoids heavy communication for state control compared to existing solutions. Moreover, since NDN is an network paradigm, integrating flow control mechanism into the lower level network stack is possible, which can not be easily done in the case of DNS. Furthuremore, in NDN the data security check required by the protocol is embedded as a segment into the low level switching packet, which prevent the clients from various attacks that could happen to DNS such as DNS poisoning and spoofing. 
+
+The existing solutions to service discovery of MSA suffers from many problems that highly degrade the advantages of building services with MSA. The service discovery not only require the fast-paced delivery of the entry points of the services but also the capability of supporting large number of requests with high availability. Therefore, a solution to address the naming and routing of microservices with low latency, flexibility, and high resilience at large scale is proposed based on the design of NDN network stack. This solution also provides load-balancing, and security of data packet through authentication.

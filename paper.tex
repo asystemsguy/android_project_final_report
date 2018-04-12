@@ -1,0 +1,100 @@
+\documentclass{IEEEtran}
+
+\input{annotations}
+
+\usepackage{booktabs} % For formal tables
+
+\usepackage[pdftex]{graphicx}
+\usepackage[shortcuts,acronym]{glossaries}
+\usepackage{listings}
+\usepackage[ruled]{algorithm2e} % For algorithms
+\usepackage[draft]{hyperref} % draft remove all hyperlinks
+\usepackage{verbatim}
+\usepackage{float}
+
+
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+
+%\newacronym{mba}{MBA}{Microservice-Based Application}
+\newacronym{soa}{SOA}{Service-Oriented Architecture}
+\newacronym{mvc}{MVC}{Model-view-controller}
+
+\newcommand\el{\emph}
+
+\IEEEoverridecommandlockouts
+
+% Document starts
+\begin{document}
+%
+%
+%%\title{Uncovering Microservice Dependencies \\ to Support Maintenance and Evolution}
+%%\title{Uncovering Microservice Dependencies \\ to Support Evolution}
+\title{Improving microservices communication using Named data routing}
+%
+%
+\author{
+  \IEEEauthorblockN{
+           Harshavardhan Kadiyala, 
+           Gu RainEr , \\
+           Susmit Japhalekar ,
+           Ravneet
+   }
+%%    \and
+%%    \and
+%%        \IEEEauthorblockA{
+%%                \IEEEauthorrefmark{1}Federal University of Pernambuco, Brazil %\\
+%%                    %\{arsj2,nsr\}@cin.ufpe.br    
+%%        }
+%%        \and
+%%        \IEEEauthorblockA{             
+%%                \IEEEauthorrefmark{4}University of British Columbia, Canada %\\
+%%                    %devkhv129@gmail.com \\
+%%                    %\{bo,mjulia\}@ece.ubc.ca \\
+%%                    %bestchai@cs.ubc.ca
+%%        }
+%%        \and
+%%        \IEEEauthorblockA{
+%%               \IEEEauthorrefmark{2}IBM, Canada  %\\
+%%        }
+%%        \and
+%%        \IEEEauthorblockA{
+%%               \IEEEauthorrefmark{3}IBM, USA  %\\
+%%                   %jstein@ca.ibm.com\\
+%%                   %aerwin@us.ibm.com                  
+%%        }   
+}
+%
+\maketitle
+%
+%%%%%%%%%%%%%%%%%%%
+%\begin{abstract}
+%%\input{abstract}
+%\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%
+%
+%
+%% The default list of authors is too long for headers}
+%%\renewcommand{\shortauthors}{G. Zhou et al.}
+%
+\input{introduction}
+%\input{dependencies}
+\input{relatedwork}
+%\input{exampleApp}
+\input{motivation}
+\input{proposed_solution}
+\input{Evaluvation}
+%%\input{conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{paper}
+
+\end{document}
