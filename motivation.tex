@@ -76,13 +76,13 @@ In this section, we will introduce unit of measurement for energy in our framewo
 
 \subsection{Unit of measurement}
 
-An abstract unit of energy in our system is called energy credit. Having an abstracted unit will help us to make the framework more customizable for Android device makers. By default, an energy credit is equivalent to 1 mAh in the current prototype implementation. When a resource of an Android system such as the network or the disk is used by an application, it will spend some energy credits equivalent to the amount of energy spent in executing that system functionality.
+An abstract unit of energy in our system is called energy credit. Having an abstracted unit will help us to make the framework more customizable for Android device makers. By default, an energy credit is equivalent to 1 mAs in the current prototype implementation. When a resource of an Android system such as the network or the disk is used by an application, it will spend some energy credits equivalent to the amount of energy spent in executing that system functionality.
 
 \subsection{Energy accounting for system resources }
 
 Android uses Linux kernel to manage system resources. In Linux kernel, system calls are the single point of contact for all user-level applications. Any user functionality that requires system resources such as network can only be executed by calling corresponding system calls. Using this fact, there are many previous android energy modeling techniques such as Eprof, which can calculate the energy consumption for each system call. In our framework, we will estimate amount of energy required to execute a system call and allow system call to execute only when required energy for application is available.
 
-System calls can have either constant or varying energy cost. System calls such as socket::connect has a constant energy cost and socket::send has an energy cost depending on the amount of data it needs to send. Constant cost system calls can be estimated before hand and can be stored in a hash table. Verifying system calls with dynamic cost require a model to predict cost based some variables such as amount of data to be transfered as in the case of socket::send. These models can be different for different devices, we can create these models using values estimated using Eprof based on different parameters.
+System calls can have either constant or varying energy cost. System calls such as socket::connect has a constant energy cost and socket::send has an energy cost depending on the amount of data it needs to send. Constant cost system calls can be estimated before hand and can be stored in a hash table. Verifying system calls with dynamic cost require a model to predict cost based some variables such as amount of data to be transfered as in the case of socket::send. These models can be different for different devices, we can create these models using values estimated by Eprof~\cite{pathak2012energy} based on different parameters such as length of data.
 
 \subsection{ Allocation of credits }
 
@@ -96,7 +96,7 @@ Our system should limit energy consumption of low and medium android application
 Below is the example on how it will work
 %Example 
 
-Our example smart phone battery have 2000 mAh as capacity for fully charged battery. if time period is 20 secs and limit for energy is 3000mAs for low priority app. If operations as specified in example given by Pathak et al. are executed in the below order
+Our example smart phone battery have 2000 mAh as capacity for fully charged battery. if time period is 20 secs and limit for energy is 3000mAs for low priority app. If operations as specified in example given by Pathak et al.~\cite{pathak2012energy} are executed in the below order
 
 \begin{enumerate}
 \item Cost of disk operation is 400mA and ran for 3 secs
@@ -121,7 +121,7 @@ At this point of time, application don't have enough credits to continue and it 
 \subsection{How we met system properties}
 
 
-In this section, we will explain how our design choices will help us achieve system requirements for our framework. System property 5 is implementation goal not a design one.
+In this section, we will explain how our design choices will help us achieve system requirements (as stated in Section ~\ref{motivation}) for our framework. System property 5 is implementation goal not a design one.
 
 \begin{enumerate}
 
@@ -145,7 +145,7 @@ In this section, we will explain how our design choices will help us achieve sys
 
 \begin{enumerate}
 
-\item  The number of credits required for a system call is approximation of original value and depends on accuracy of cost model.
+\item  The number of credits required to execute a system call is approximation of original energy spent and depends on accuracy of cost model.
 \item  Battery characteristics such as charge will change over the lifetime of the battery and system properties and models should be constantly updated to reflect this.   
 \item  Certain existing operations which require high energy in short time period may fail.
 \item  In cases such as tail energy applications can have energy impact without calling system calls.
