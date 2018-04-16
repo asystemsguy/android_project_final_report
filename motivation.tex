@@ -3,8 +3,7 @@
 \label{motivation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-One of the main requirements for an Android application is energy efficiency. Current energy management techniques in android give a little scope for energy control of applications based on user preferences. In this project, we develop a framework based on Android to enable user-centric energy management. This framework will enable users to give priority to the energy consumption of apps that are of high value to them. Furthermore, it will also give incentive for developers to create applications that are energy efficient. 
+Our main contribution in this project is a framework based on Android to enable user-centric energy management. This framework will enable users to give priority to the energy consumption of apps that are of high value to them. Furthermore, it will also give incentive for developers to create applications that are energy efficient. 
 
 
 There are three stakeholders that are mainly affected by this framework
@@ -26,7 +25,7 @@ Android application developers should adapt their lower priority applications to
 Accurate energy accounting depends on specific device and battery used. Hence the framework should be customizable for device manufacturers so that they can optimize for their devices and battery type used. 
 
 
-Keeping various stakeholders in mind, our system should always ensure following properties
+Keeping various stakeholders in mind, our system should always ensure following requirements.
 
 \begin{enumerate}
 \item Always higher priority applications can use more energy than a lower priority application.
@@ -66,7 +65,7 @@ In the next section, we will look at how system is designed to satisfy these pro
 
 
 \section{Solution}
-
+\label{solution}
 
 
 \subsection{System design}
@@ -121,23 +120,23 @@ At this point of time, application don't have enough credits to continue and it 
 \subsection{How we met system properties}
 
 
-In this section, we will explain how our design choices will help us achieve system requirements (as stated in Section ~\ref{motivation}) for our framework. System property 5 is implementation goal not a design one.
+In this section, we will explain how our design choices will help us achieve system requirements (as stated in Section ~\ref{motivation}) for our framework. System requirement 5 is implementation goal not a design one.
 
 \begin{enumerate}
 
-\item  System property 1: This framework design will ensure that lower priority applications always has limited available energy without restricting high priority and system apps.
+\item  System requirement 1: This framework design will ensure that lower priority applications always has limited available energy without restricting high priority and system apps.
 
-\item  System property 2: The fairness is ensured as framework always restricts applications by same rate of energy given battery availability is same. 
+\item  System requirement 2: The fairness is ensured as framework always restricts applications by same rate of energy given battery availability is same. 
 
-\item  System properties 3 and 8: Rate is proportional to amount of battery available. So if energy available in battery increases rate also increases and more energy will be available to applications.
+\item  System requirements 3 and 8: Rate is proportional to amount of battery available. So if energy available in battery increases rate also increases and more energy will be available to applications.
 
-\item System property 4: Rate of energy spent will be same irrespective of how many applications are there in the system. Even if all the low priority applications are running and starts spending energy still the impact will be minimal on the battery as each can spend only 0.05\% of battery.
+\item System requirement 4: Rate of energy spent will be same irrespective of how many applications are there in the system. Even if all the low priority applications are running and starts spending energy still the impact will be minimal on the battery as each can spend only 0.05\% of battery.
 
-\item System property 6: Our framework will always throw an exception when energy is not available. Furthermore, developer will also know time period for which energy credits will refresh and also number of energy credits app will acquire.
+\item System requirement 6: Our framework will always throw an exception when energy is not available. Furthermore, developer will also know time period for which energy credits will refresh and also number of energy credits app will acquire.
 
-\item System property 7: Our framework allocates limited number of energy credits for short time periods. This design choice is required as we are uncertain on how many applications will be active in future and can't allocate energy credits for applications before hand. Once allocated developer can be sure given energy credits will remain with the application.
+\item System requirement 7: Our framework allocates limited number of energy credits for short time periods. This design choice is required as we are uncertain on how many applications will be active in future and can't allocate energy credits for applications before hand. Once allocated developer can be sure given energy credits will remain with the application.
 
-\item System property 9: Device manufactures can optimize system by changing parameters such as 1) equivalent energy for each energy credit(1 energy credit = 1 mAs or 2mAs etc.), 2) number of energy credits allocated per time period, 3) length of time period. 
+\item System requirement 9: Device manufactures can optimize system by changing parameters such as 1) equivalent energy for each energy credit(1 energy credit = 1 mAs or 2mAs etc.), 2) number of energy credits allocated per time period, 3) length of time period. 
 
 \end{enumerate}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.10)  16 APR 2018 12:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.10)  16 APR 2018 13:52
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -719,17 +719,16 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-) (./motivation.tex [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updma
-p/pdftex.map}
+ [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] [2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 110.
+]) (./motivation.tex [2]
+LaTeX Font Info:    Try loading font information for U+msa on input line 109.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 110.
+LaTeX Font Info:    Try loading font information for U+msb on input line 109.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -758,9 +757,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--28
 l /
  []
 
-)
+[6])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 67.
- [6]
+ [7
+
+]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
  (./paper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
@@ -772,22 +773,22 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 67.
 ### bottom level 
 Here is how much of TeX's memory you used:
  13412 strings out of 492995
- 201912 string characters out of 6132704
- 380706 words of memory out of 5000000
+ 201906 string characters out of 6132704
+ 379705 words of memory out of 5000000
  16729 multiletter control sequences out of 15000+600000
  40126 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,7n,37p,1935b,5427s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,6n,37p,1935b,5471s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 167622 bytes).
+Output written on paper.pdf (7 pages, 169292 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 54 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
