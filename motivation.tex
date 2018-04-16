@@ -56,7 +56,7 @@ In the next section, we will look at how system is designed to satisfy these pro
 \subsection{System design}
 
 
-In this section, we will introduce fundamental unit of measurement for energy in our system, how we account for energy consumption of applications and finally how we will allocate energy between applications to ensure system properties are met.
+In this section, we will introduce unit of measurement for energy in our framework, how we account for energy consumption by the applications and finally, we will describe how we allocate energy between applications to ensure system properties are met.
 
 \subsection{Unit of measurement}
 
@@ -70,7 +70,7 @@ System calls can have either constant or varying energy cost. System calls such 
 
 \subsection{ Allocation of credits }
 
-Energy credit allocation among applications in a dynamic system such as Android can be tricky. The total number of available energy credits change as the battery is discharged continuously. Number applications consuming energy will also change with time. Furthermore, some applications will only be installed in the system, but may never be used. Hence it's important to carefully allocate energy credits to ensure all of the system properties stated in the section ~\cite{motivation}  are met.
+Energy credit allocation among applications in a dynamic system such as Android can be tricky. The total number of available energy credits change as the battery is discharged continuously. Number applications consuming energy will also change with time. Furthermore, some applications will only be installed in the system, but may never be used. Hence it's important to carefully allocate energy credits to ensure all of the system properties stated in the section~\ref{motivation}  are met.
 
 The lithium-ion batteries used in modern Smartphones have the capacity range from 1000 mAh to 5000mAh. For example, If a phone is fully charged and the battery has a capacity of 2000mAh and if applications has a continuous load of 200 mA, then the battery will last for 10 hours. By decreasing load on the battery, we can decrease overall power consumption and increase battery life. In the previous example, if applications only has a load of 100 mA then the battery will last for 20 hours.  To facilitate this we need to limit the amount of energy spent by applications. In our framework, we will limit number energy credits an low priority application can spend in a time period. In the prototype implementation, we had the time period as 1 min.
 
@@ -79,9 +79,28 @@ Our system should limit energy consumption of low and medium android application
 \subsection{Example}
 Below is the example on how it will work
 %Example 
-Battery capacity is measured in Milli-Ampiers per hour. Normal smart phone battery will have 2000 mAh as capacity for fully charged battery. If operations as specified in Pathak et al. 
 
+Our example smart phone battery have 2000 mAh as capacity for fully charged battery. if time period is 20 secs and limit for energy is 3000mAs for low priority app. If operations as specified in example given by Pathak et al. are executed in the below order
 
+\begin{enumerate}
+\item Cost of disk operation is 400mA and ran for 3 secs
+\item Cost of small network transfer is 125mA and ran for 7 sec.
+\item Cost of large network transfer is 500mA and ran for 10 sec.
+\end{enumerate}
+
+Execution of system calls:
+
+\begin{itemize}
+
+\item Then number of credits remaining after 1st operation ran will be 3000 - (400mA*3) = 1800mA
+
+\item Number of credits that will be spent on small network transfer will be 1800 - (125*7) = 925
+
+At this point of time, application don't have enough credits to continue and it can execute next system call (costs 5000 mAs) for network transfer only when app can be at higher priority.
+
+\item System call for large network transfer will fail and app developer will be force to wait until next time period (to get enough credits back) to execute series of small data transfers which are less costly than a large network transfer.
+
+\end{itemize}
 
 \subsection{How we met system properties}
 
