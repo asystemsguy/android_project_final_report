@@ -34,13 +34,33 @@ Keeping various stakeholders in mind, our system should always ensure following 
 
 \begin{enumerate}
 \item Always higher priority applications can use more energy than a lower priority application.
-\item Fairness among all applications belonging to same priority should be ensured.
-\item The system should consider the changes in total available energy as the battery drains over the time.
-\item It should also take into account for changes in the number of energy consumers that are active in the Smartphone. 
+
+Our framework's main functionality is to restrict energy used by lower priority applications. On the other hand, it should allow unrestricted access to energy for high priority and system apps.
+
+\item Fairness in-terms of energy availability among all applications belonging to same priority should be ensured.
+
+If two applications are having same priority they both should have access to the same amount of energy. This may not guarantee two applications actually use the same amount of energy. 
+
+For example, if App 1 comes into the system when the battery is completely charged and executes until the end;  App 2 has same priority but comes when the battery is completely drained it may not use the same amount of energy due to unavailability of energy in the battery. But in both cases framework should not restrict the app from using the same amount of energy if it is available.
+
+\item The framework should consider the changes in total available energy as the battery drains over the time.
+
+As total available energy changes framework should further tighten restrictions on lower priority applications. This will ensure high priority applications and android system can run longer. 
+
+\item It should also take into account the changes in the number of energy consumers that are active in the Smartphone. 
+
+Android applications will dynamically enter the system and leave the system. Framework should ensure new consumers are not effecting existing ones and fairness is ensured among all applications that are running.
+
 \item The framework should have minimal overhead.
 \item The framework should ensure failures due to lack of energy are graceful and developers are notified.
-\item The framework shouldn't reclaim energy once allocated to an app unless application releases or gets killed. 
-\item Apps should benefit when system gains energy due to recharge of battery.
+
+This is required for developers to understand why their application failed and write code to wait for energy availability before executing next operation.
+
+\item The framework shouldn't reclaim energy once allocated to an app.  
+
+The developer decides which system resources to use and which to avoid based on energy availability.  It will be hard for developers to decide which system resources to use if allowed energy limit set by the framework is not guaranteed.
+
+\item Apps should benefit when system gains energy due to recharge of the battery.
 \item The system should be customizable for different hardware devices and battery.
 
 \end{enumerate}
