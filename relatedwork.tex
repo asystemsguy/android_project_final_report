@@ -5,15 +5,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-There is a large body of work on energy/power consumption of Android apps. Prior related studies can be categorized into three categories: power modeling, energy accounting and energy management.
+There is a large body of work on power consumption of Android apps. Prior related studies can be categorized into three categories: power modeling, energy accounting and energy management.
 
 Research in power modeling suggests estimating the energy usage of mobile devices or apps in the absence of hardware power
 monitors ~\cite{hao2013estimating}, ~\cite{li2013calculating}. These software-based approaches build models and capture model parameters from programs using static-analysis techniques.
  
-Studies in power/energy accounting make use of specialized hardware, such as Monsoon~\cite{yoon2012appscope}, and map the sampled measurements to execution traces to determine an app's energy consumption at various granularities. Pathak et al.~\cite{pathak2012energy} develop fine-grained energy profiler-Eprof  to account for energy spent among apps in smartphone. EnergyMac, on other hand, leverages these ideas from modeling and energy accounting techniques to estimate energy requirement of app activities to enforce strict energy access limits on applications.
+Studies in energy accounting make use of specialized hardware such as Monsoon and map the sampled measurements to execution traces to determine an app's energy consumption at various granularities. Yoon et al.~\cite{yoon2012appscope} develop Appscope, an Android-based energy metering system, monitors application’s hardware usage at the kernel level and accurately estimates energy consumption for each app. AppScope is implemented as a kernel module and uses an event-driven monitoring. 
 
+Pathak et al.~\cite{pathak2012energy} develop fine-grained energy profiler-Eprof to account for energy spent among apps in smartphone. Eprof is based on fine-grained online power modeling technique which accurately captures complicated power behavior of modern Smartphone components in a system-call-driven Finite State Machine (FSM). EnergyMAC, on other hand, leverages these ideas from modeling and energy accounting techniques to estimate energy requirement of system call level to enforce strict energy access limits on applications.
 
-EcoSystem~\cite{zeng2002ecosystem} aims to extend battery lifetime by limiting the average discharge rate and to share this limited resource among competing tasks on the Laptop according to user preferences. Cinder~\cite{roy2011energy}, a completely new operating system designed for mobile, tries to control the power consumption of applications accurately through managing battery energy as one kind of system resources. EnergyMac also treats the battery as resource and gives its control of discharge  to the user and this is mainly focused for Android OS.
+ECOSystem~\cite{zeng2002ecosystem} aims to extend battery lifetime by limiting the average discharge rate and to share this limited resource among competing tasks on the Thinkpad according to user preferences. Cinder~\cite{roy2011energy}, a completely new operating system designed for mobile, tries to control the power consumption of applications accurately by managing battery energy as one of the system resource. Cinder employs different abstraction: reserves and taps, which store and distribute energy for application use. EnergyMAC also treats the battery as resource and gives its control of discharge  to the user however, it differs from these in various aspects. In Cinder, the energy estimation is done at the level of hardware devices and enforced using a special energy-aware CPU scheduler, whereas EnergyMAC's energy estimation and enforcement is done at the system call level.
 
 
 
