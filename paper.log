@@ -1,8 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.10)  16 OCT 2017 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.10)  15 APR 2018 17:42
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**paper.tex
+**paper
 (./paper.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
@@ -711,109 +712,65 @@ LaTeX Info: Redefining \ref on input line 34.
 LaTeX Info: Redefining \pageref on input line 34.
 LaTeX Info: Redefining \nameref on input line 34.
 
-(./introduction.tex) (./relatedwork.tex
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-
-<figs/ndn_packet.png, id=1, 685.56125pt x 243.91125pt>
-File: figs/ndn_packet.png Graphic file (type png)
-
-<use figs/ndn_packet.png>
-Package pdftex.def Info: figs/ndn_packet.png used on input line 19.
-(pdftex.def)             Requested size: 227.61673pt x 85.35904pt.
- [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+(./motivation.tex [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/
+pdftex.map}
 
 
 ]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
- <figs/process2.png, id=10, 271.0125pt x 187.70125pt>
-File: figs/process2.png Graphic file (type png)
 
-<use figs/process2.png>
-Package pdftex.def Info: figs/process2.png used on input line 27.
-(pdftex.def)             Requested size: 227.62825pt x 85.35837pt.
-) (./motivation.tex
-Underfull \hbox (badness 1629) in paragraph at lines 18--19
-[]\OT1/ptm/m/n/10 The so-lu-tions re-lated to dis-tributed re-li-able key-value
+LaTeX Warning: Citation `motivation' on page 2 undefined on input line 73.
 
- []
+) (./proposed_solution.tex
+<Figs/mobileapp.pdf, id=8, 544.0325pt x 378.41376pt>
+File: Figs/mobileapp.pdf Graphic file (type pdf)
+ <use Figs/mobileapp.pdf>
+Package pdftex.def Info: Figs/mobileapp.pdf used on input line 7.
+(pdftex.def)             Requested size: 201.60077pt x 140.2303pt.
 
-) (./proposed_solution.tex [2 <./figs/ndn_packet.png> <./figs/process2.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+[2 <./Figs/mobileapp.pdf>]
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<figs/structural_diagram.png, id=16, 482.2818pt x 179.4705pt>
-File: figs/structural_diagram.png Graphic file (type png)
+))
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
 
-<use figs/structural_diagram.png>
-Package pdftex.def Info: figs/structural_diagram.png used on input line 62.
-(pdftex.def)             Requested size: 227.62178pt x 85.35616pt.
- [3 <./figs/structural_diagram.png>])
-(./Evaluvation.tex) (./paper.bbl
-Underfull \hbox (badness 3536) in paragraph at lines 58--60
-[]\OT1/ptm/m/n/8 ``Docker Com-pose on-line,'' $https : / / github . com / docke
-r / compose$, ac-
- []
+(./paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 98.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--64
-[]\OT1/ptm/m/n/8 ``Mesos DNS, how-pub-lished = $https : / / github . com / meso
-sphere /
- []
+LaTeX Warning: There were undefined references.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--89
-[]\OT1/ptm/m/n/8 ``Docker con-tainer net-work-ing,'' $https : / / docs . docker
- . com / engine /
- []
-
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
- (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 100.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13470 strings out of 492995
- 202753 string characters out of 6132704
- 381814 words of memory out of 5000000
- 16792 multiletter control sequences out of 15000+600000
- 39030 words of font info for 84 fonts, out of 8000000 for 9000
+ 13400 strings out of 492995
+ 201766 string characters out of 6132704
+ 378024 words of memory out of 5000000
+ 16744 multiletter control sequences out of 15000+600000
+ 34794 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,7n,37p,1939b,5490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,6n,37p,1935b,5552s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
-}</usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/loc
-al/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 144934 bytes).
+}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (3 pages, 127731 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
