@@ -4,11 +4,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%Why we are building this system - motivation
 One of the main requirements for an Android application is energy efficiency. Current energy management techniques in android give a little scope for energy control of applications based on user preferences. In this project, we develop a framework based on Android to enable user-centric energy management. This framework will enable users to give priority to the energy consumption of apps that are of high value to them. Furthermore, it will also give incentive for developers to create applications that are energy efficient. 
 
 
-%Who are stake holders and what they want
 There are three stakeholders that are mainly affected by this framework
 
 \begin{enumerate}
@@ -19,7 +17,6 @@ There are three stakeholders that are mainly affected by this framework
 
 \end{enumerate}
 
-%What we are building
 Users have a limited power in their Smartphone batteries. Among many applications installed by a user on their Smartphone, only a few frequently used applications are more important for them. For a user who is mindful of his battery life may want to restrict applications that have a high energy usage but has a little value for the user. To restrict such apps from consuming all of the energy, a user can use our framework to provide a priority for each app installed on their Smartphone. A user can give either high, medium, or low priorities for an app based on their preference. By default, applications will be in low priority when they are initially installed in the phone. 
 
 High priority applications and the Android operating system itself are considered to be most important applications for the user and are allowed to unrestricted use of the energy. Energy usage of medium and low priority applications are considered to be less important for the user and energy usage of these applications are restricted by our framework. 
@@ -29,7 +26,6 @@ Android application developers should adapt their lower priority applications to
 Accurate energy accounting depends on specific device and battery used. Hence the framework should be customizable for device manufacturers so that they can optimize for their devices and battery type used. 
 
 
-%What are constriants of our system
 Keeping various stakeholders in mind, our system should always ensure following properties
 
 \begin{enumerate}
@@ -90,9 +86,9 @@ System calls can have either constant or varying energy cost. System calls such 
 
 \subsection{ Allocation of credits }
 
-Energy credit allocation among applications in a dynamic system such as Android can be tricky. The total number of available energy credits change as the battery is discharged continuously. Number applications consuming energy will also change with time. Furthermore, some applications will only be installed in the system, but may never be used. Hence it's important to carefully allocate energy credits to ensure all of the system properties stated in the section~\ref{motivation}  are met.
+Energy credit allocation among applications in a dynamic system such as Android can be tricky. The total number of available energy credits change as the battery is discharged continuously. Number applications consuming energy will also change with time. Furthermore, some applications will only be installed in the system, but may never be used. Hence it's important to carefully allocate energy credits to ensure all of the system properties stated in the section~\ref{motivation}are met.
 
-The lithium-ion batteries used in modern Smartphones have the capacity range from 1000 mAh to 5000mAh. For example, If a phone is fully charged and the battery has a capacity of 2000mAh and if applications has a continuous load of 200 mA, then the battery will last for 10 hours. By decreasing load on the battery, we can decrease overall power consumption and increase battery life. In the previous example, if applications only has a load of 100 mA then the battery will last for 20 hours.  To facilitate this we need to limit the amount of energy spent by applications. In our framework, we will limit number energy credits an low priority application can spend in a time period. In the prototype implementation, we had the time period as 1 min.
+The lithium-ion batteries used in modern Smartphones have the capacity range from 1000 mAh to 5000mAh. For example, If a phone is fully charged and the battery has a capacity of 2000mAh and if applications has a continuous load of 200 mA, then the battery will last for 10 hours. By decreasing load on the battery, we can decrease overall power consumption and increase battery life. In the previous example, if applications only has a load of 100 mA then the battery will last for 20 hours. To facilitate this we need to limit the amount of energy spent by applications. In our framework, we will limit number energy credits an low priority application can spend in a time period. In the prototype implementation, we had the time period as 1 min.
 
 Our system should limit energy consumption of low and medium android applications without affecting the energy consumption of the system and high priority applications. To ensure this, we will allocate an infinite number of credits for high priority and system apps. For medium and low priority applications, we will allocate 0.1\% and 0.05\% of total available credits respectively per time period. 
 
@@ -124,15 +120,24 @@ At this point of time, application don't have enough credits to continue and it 
 
 \subsection{How we met system properties}
 
+
+In this section, we will explain how our design choices will help us achieve system requirements for our framework. System property 5 is implementation goal not a design one.
+
 \begin{enumerate}
 
-%How will ensure system properties are meet
+\item  System property 1: This framework design will ensure that lower priority applications always has limited available energy without restricting high priority and system apps.
 
-\item  This system will ensure that lower priority applications always has limited energy usage. This will force applications developers to create applications to have a minimal energy consumption. 
+\item  System property 2: The fairness is ensured as framework always restricts applications by same rate of energy given battery availability is same. 
 
-\item  It will always allocate applications with same priority same amount of energy credits.
+\item  System properties 3 and 8: Rate is proportional to amount of battery available. So if energy available in battery increases rate also increases and more energy will be available to applications.
 
-\item  Rate is proportional to amount of battery available 
+\item System property 4: Rate of energy spent will be same irrespective of how many applications are there in the system. Even if all the low priority applications are running and starts spending energy still the impact will be minimal on the battery as each can spend only 0.05\% of battery.
+
+\item System property 6: Our framework will always throw an exception when energy is not available. Furthermore, developer will also know time period for which energy credits will refresh and also number of energy credits app will acquire.
+
+\item System property 7: Our framework allocates limited number of energy credits for short time periods. This design choice is required as we are uncertain on how many applications will be active in future and can't allocate energy credits for applications before hand. Once allocated developer can be sure given energy credits will remain with the application.
+
+\item System property 9: Device manufactures can optimize system by changing parameters such as 1) basic unit of energy, 2) number of energy credits allocated per time period, 3) length of time period. 
 
 \end{enumerate}
 
@@ -140,9 +145,9 @@ At this point of time, application don't have enough credits to continue and it 
 
 \begin{enumerate}
 
-\item  The number of credits required for a system call is approximation of original value.
-\item  Battery characteristics such as charge will change over the lifetime of the battery. 
-\item  Certain existing operations which require high energy may fail.
+\item  The number of credits required for a system call is approximation of original value and depends on accuracy of cost model.
+\item  Battery characteristics such as charge will change over the lifetime of the battery and system properties and models should be constantly updated to reflect this.   
+\item  Certain existing operations which require high energy in short time period may fail.
 \item  In cases such as tail energy applications can have energy impact without calling system calls.
 
 \end{enumerate}
@@ -150,6 +155,7 @@ At this point of time, application don't have enough credits to continue and it 
 \subsection{Assumptions}
 
 Following are assumptions we make in the Android system
+
 \begin{enumerate}
 
 \item  We account for all energy consumption with system calls.
